@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-{% load staticfiles %}
 <head>
+    {% load staticfiles %}
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>天天生鲜-注册</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/register.js'%}"></script>
+	<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
 </head>
 <body>
 	<div class="register_con">
@@ -23,14 +23,14 @@
 				<a href="#">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form method="post" action="/apps/user/register">
+				<form action="/user/register/" method="post">
                     {% csrf_token %}
-				<ul>
+                    <ul>
 					<li>
 						<label>用户名:</label>
 						<input type="text" name="user_name" id="user_name">
 						<span class="error_tip">提示信息</span>
-					</li>					
+					</li>
 					<li>
 						<label>密码:</label>
 						<input type="password" name="pwd" id="pwd">
@@ -54,9 +54,9 @@
 					<li class="reg_sub">
 						<input type="submit" value="注 册" name="">
 					</li>
-				</ul>				
+				</ul>
 				</form>
-                {{ errmsg }}
+                <p>{{ errmsg }}</p>
 			</div>
 
 		</div>

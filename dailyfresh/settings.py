@@ -12,11 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import sys
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -38,10 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'order',  # 订单模块
-    'user',  # 用户模块
-    'goods',  # 商品模块
-    'cart',  # 购物车模块
+    'apps.order',  # 订单模块
+    'apps.user',  # 用户模块
+    'apps.goods',  # 商品模块
+    'apps.cart',  # 购物车模块
     'tinymce',  # 富文本编辑器
 ]
 
@@ -136,9 +134,23 @@ STATICFILES_DIRS = [
 ]
 
 
+
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advance',
     'width': 600,
     'height': 400,
 }
+
+# 发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = False
+# smpt服务地址
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+# 邮箱
+EMAIL_HOST_USER = 'kcy9701@163.com'
+# 授权密码
+EMAIL_HOST_PASSWORD = 'KEBFCWYNECQLIFBE'
+# DEFAULT_FROM_EMAIL = 'kcy9701@163.com'
+EMAIL_FROM = '天天生鲜<kcy9701@163.com>'

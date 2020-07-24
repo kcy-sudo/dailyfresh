@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderinfo',
             name='addr',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='user.Address', verbose_name='地址'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.user.Address', verbose_name='地址'),
         ),
         migrations.AddField(
             model_name='orderinfo',
@@ -30,11 +30,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='ordergoods',
             name='order',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='order.OrderInfo', verbose_name='订单'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.order.OrderInfo', verbose_name='订单'),
         ),
         migrations.AddField(
             model_name='ordergoods',
             name='sku',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsSKU', verbose_name='商品SKU'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsSKU', verbose_name='商品SKU'),
         ),
     ]

@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
                 ('stock', models.IntegerField(default=1, verbose_name='商品库存')),
                 ('sales', models.IntegerField(default=0, verbose_name='商品销量')),
                 ('status', models.SmallIntegerField(choices=[(0, '下线'), (1, '上线')], default=1, verbose_name='商品状态')),
-                ('goods', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.Goods', verbose_name='商品SPU')),
+                ('goods', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.Goods', verbose_name='商品SPU')),
             ],
             options={
                 'verbose_name': '商品',
@@ -93,7 +93,7 @@ class Migration(migrations.Migration):
                 ('is_delete', models.BooleanField(default=False, verbose_name='删除标记')),
                 ('image', models.ImageField(upload_to='banner', verbose_name='图片')),
                 ('index', models.SmallIntegerField(default=0, verbose_name='展示顺序')),
-                ('sku', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsSKU', verbose_name='商品')),
+                ('sku', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsSKU', verbose_name='商品')),
             ],
             options={
                 'verbose_name': '首页轮播商品',
@@ -128,8 +128,8 @@ class Migration(migrations.Migration):
                 ('is_delete', models.BooleanField(default=False, verbose_name='删除标记')),
                 ('display_type', models.SmallIntegerField(choices=[(0, '标题'), (1, '图片')], default=1, verbose_name='展示类型')),
                 ('index', models.SmallIntegerField(default=0, verbose_name='展示顺序')),
-                ('sku', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsSKU', verbose_name='商品SKU')),
-                ('type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsType', verbose_name='商品类型')),
+                ('sku', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsSKU', verbose_name='商品SKU')),
+                ('type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsType', verbose_name='商品类型')),
             ],
             options={
                 'verbose_name': '主页分类展示商品',
@@ -140,11 +140,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='goodssku',
             name='type',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsType', verbose_name='商品种类'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsType', verbose_name='商品种类'),
         ),
         migrations.AddField(
             model_name='goodsimage',
             name='sku',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.GoodsSKU', verbose_name='商品'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='apps.goods.GoodsSKU', verbose_name='商品'),
         ),
     ]
