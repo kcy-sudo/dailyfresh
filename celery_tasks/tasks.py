@@ -3,10 +3,17 @@ from celery import Celery
 from django.conf import settings
 from django.core.mail import send_mail
 
-# 创建一个Celery类的实例对象
-app = Celery('celery_tasks.tasks', broker='')
+#django环境初始化
+# import os
+# import django
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dailyfresh.settings')
+# django.setup()
 
-#定义任务为函数+
+# 创建一个Celery类的实例对象
+app = Celery('celery_tasks.tasks', broker='redis://@154.8.178.243:6379/0')
+
+
+#定义任务为函数
 @app.task
 def send_register_active_email(to_email, username, token):
     '''发送激活邮件'''

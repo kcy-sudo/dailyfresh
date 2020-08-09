@@ -4,6 +4,7 @@ from django.views.generic.base import View
 from django.core.cache import cache
 from apps.goods.models import GoodsType, IndexGoodsBanner, IndexTypeGoodsBanner, IndexPromotionBanner, GoodsSKU
 from apps.order.models import OrderGoods
+# from django_redis import get_redis_connection
 
 # Create your views here.
 
@@ -54,9 +55,10 @@ class IndexView(View):
         cart_count = 0
         if user.is_authenticated:
             # 用户已登录
-            conn = get_redis_connection('default')
+            # conn = get_redis_connection('default')
             cart_key = 'cart_{0}'.format(user.id)
-            cart_count = conn.hlen(cart_key)
+            cart_count = 1
+            # conn.hlen(cart_key)
 
         context.update(user=user, cart_count=cart_count)
 

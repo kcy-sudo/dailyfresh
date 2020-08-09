@@ -154,3 +154,23 @@ EMAIL_HOST_USER = 'kcy9701@163.com'
 EMAIL_HOST_PASSWORD = 'KEBFCWYNECQLIFBE'
 # DEFAULT_FROM_EMAIL = 'kcy9701@163.com'
 EMAIL_FROM = '天天生鲜<kcy9701@163.com>'
+
+# Django的缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://154.8.178.243:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+
+    }
+}
+
+
+# 配置SESSION的存储
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+# 配置登录url地址
+LOGIN_URL = '/user/login/'
