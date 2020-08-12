@@ -156,13 +156,13 @@ class LoginView(View):
         '''显示登录页面'''
         # 判断是否记住了用户名
         if 'username' in request.COOKIES:
-            username = request.COOKIES.get('username')
+            username = request.COOKIES['username']
             checked = 'checked'
         else:
             username = ''
             checked = ''
         # 使用模板
-        return render(request, 'login.html', {'username': username, 'checked': 'checked'})
+        return render(request, 'login.html', {'username': username, 'checked': checked})
 
     def post(self, request):
         '''登录验证'''
@@ -192,9 +192,9 @@ class LoginView(View):
                 else:
                     # 不记住用户名
                     response.delete_cookie('username')
-                print('111111111111')
-                # 返回到首页
+                # 返回response
                 return response
+                print('1111111111')
 
             else:
                 # 用户未激活
@@ -206,4 +206,25 @@ class LoginView(View):
         # 返回应答
 
 
+
+
+class UserInfoView(View):
+    '''用户中心-信息页'''
+    def get(self, request):
+        '''显示'''
+        return render(request, 'user_center_info.html')
+
+
+class UserOrderView(View):
+    '''用户中心-信息页'''
+    def get(self, request):
+        '''显示'''
+        return render(request, 'user_center_order.html')
+
+
+class AddressView(View):
+    '''用户中心-信息页'''
+    def get(self, request):
+        '''显示'''
+        return render(request, 'user_center_site.html')
 
