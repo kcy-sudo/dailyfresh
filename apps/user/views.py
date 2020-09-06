@@ -212,19 +212,22 @@ class UserInfoView(View):
     '''用户中心-信息页'''
     def get(self, request):
         '''显示'''
-        return render(request, 'user_center_info.html')
+        # page = user
+        return render(request, 'user_center_info.html', {'page': 'user'})
 
 
 class UserOrderView(View):
     '''用户中心-信息页'''
     def get(self, request):
         '''显示'''
-        return render(request, 'user_center_order.html')
+        # page = order
+        return render(request, 'user_center_order.html', {'page': 'order'})
 
 
 class AddressView(View):
     '''用户中心-信息页'''
     def get(self, request):
         '''显示'''
-        return render(request, 'user_center_site.html')
+        # page = address
+        return render(request, 'user_center_site.html', {'page': 'address'})
 
